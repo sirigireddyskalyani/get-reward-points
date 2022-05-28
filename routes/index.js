@@ -6,7 +6,9 @@ router.get('/', function(req, res, next) {
   res.send({
     title: 'get-reward-points',
     type: 'API Service',
-    apis: []
+    apis: [
+      '/rewards/:expense'
+    ]
   });
 });
 
