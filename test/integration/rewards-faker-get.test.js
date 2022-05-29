@@ -9,9 +9,9 @@ describe('Expenses Transactions FAKER API', () => {
             .set('Accept', 'application/json')
             .end((err, response) => {
                 if (err) done(err);
-                const data = response.body;
+                const records = response.body.data;
                 expect(response.statusCode).to.equal(200);
-                expect(data.records.length).to.equal(10);
+                expect(records.length).to.equal(10);
                 done();
             });
     });
@@ -21,9 +21,9 @@ describe('Expenses Transactions FAKER API', () => {
             .set('Accept', 'application/json')
             .end((err, response) => {
                 if (err) done(err);
-                const data = response.body;
+                const records = response.body.data;
                 expect(response.statusCode).to.equal(200);
-                expect(data.records.length).to.equal(90);
+                expect(records.length).to.equal(90);
                 done();
             });
     });

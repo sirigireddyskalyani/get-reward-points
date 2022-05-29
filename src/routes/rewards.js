@@ -17,7 +17,7 @@ router.get("/:expense", [getRewardValidation], function (req, res) {
 router.get('/mock/:days', function (req, res) {
   const response = getTransactionsPerDays(parseFloat(req.params.days))
   res.send({
-      records: response,
+      data: response,
       processTime: getProcessTime(req.reqTime),
   });
 });
@@ -28,14 +28,15 @@ router.post('/total', [postRewardValidation], function (req, res, next) {
       const details = calcRewardPoints(parseFloat(rec.expenses))
       const entity = response[rec.username]
       if (entity) {
+          entity.expenses = entity.expenses + rec.expenses;
           entity.points = entity.points + details.points;
       } else {
-          response[rec.username] = {...rec, points: details.points}
+          response[rec.username] = {expenses: rec.expenses, points: details.points}
       }
   })
   res.send({
       processTime: getProcessTime(req.reqTime),
-      rewards: response,
+      data: response,
   });
 });
 

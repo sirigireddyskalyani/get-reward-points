@@ -49,7 +49,7 @@ describe('Total Rewards POST API', () => {
             })
             .end((err, response) => {
                 if (err) done(err);
-                const rewards = response.body.rewards;
+                const rewards = response.body.data;
                 expect(response.statusCode).to.equal(200);
                 expect(rewards).to.haveOwnProperty('Albin59');
                 expect(Object.keys(rewards).length).to.equal(1);
@@ -87,7 +87,7 @@ describe('Total Rewards POST API', () => {
             })
             .end((err, response) => {
                 if (err) done(err);
-                const rewards = response.body.rewards;
+                const rewards = response.body.data;
                 expect(response.statusCode).to.equal(200);
                 expect(rewards).to.haveOwnProperty('Albin59');
                 expect(rewards).to.haveOwnProperty('Felicity21');
