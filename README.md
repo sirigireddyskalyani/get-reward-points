@@ -13,11 +13,42 @@ Is an REST API service to handle one of retailer use case -
 * API Service - Express.js
 * Unit Tests  - mocha, chai, supertest
 * Code coverage - nyc
-
-# Development #
 ### SETUP ###
-1. Project setup is made with the help of Express Genarator Utility
-    1. https://expressjs.com/en/starter/generator.html
-2. npx express-generator get-reward-points
-3. cd get-reward-points
-4. npm install
+```
+$ git clone git@github.com:sirigireddyskalyani/get-reward-points.git
+cd get-reward-points
+$ npm run dev
+```
+* download postman collection from - https://www.getpostman.com/collections/5b61d53e106046e48bda
+## Development ##
+The project setup made by using Express Genarator Utility -- https://expressjs.com/en/starter/generator.html
+```
+1. npx express-generator get-reward-points
+2. cd get-reward-points
+3. npm install
+```
+### npm run dev ###
+![picture alt](https://raw.githubusercontent.com/sirigireddyskalyani/get-reward-points/main/showcase/npm_dev.png)
+## Rewards API Services ##
+Method | API | Request | Response
+| :--- | :--- | ---: | :---:
+GET | http://localhost:3000/rewards/90  | 90 | ``` { "data": {"expense": "90", "points": 40 }, "processTime": "0 sec" } ```
+
+![picture alt](https://raw.githubusercontent.com/sirigireddyskalyani/get-reward-points/main/showcase/get_rewards_expense.png)
+
+Method | API | Request | Response
+| :--- | :--- | ---: | :---:
+GET | http://localhost:3000/rewards/mock/2  | 2 | ``` {"data":[{"username":"Abbigail_Rowe21","date":"2022-05-09T01:03:02.894Z","expenses":983.55},{"username":"Carlee.Casper","date":"2022-05-27T14:28:08.684Z","expenses":566.41}],"processTime":"0.002 sec"} ```
+
+![picture alt](https://raw.githubusercontent.com/sirigireddyskalyani/get-reward-points/main/showcase/get_rewards_mock_days.png)
+
+Method | API | Request | Response
+| :--- | :--- | ---: | :---:
+POST | http://localhost:3000/rewards/total  | ``` { "records": [ { "username": "Payton.Runte", "date": "2022-04-22T14:54:34.127Z", "expenses": 120 }, { "username": "Therese36", "date": "2022-04-16T05:42:54.373Z", "expenses": 500 } ] } ``` | ``` {"processTime":"0 sec","data":{"Payton.Runte":{"expenses":120,"points":90},"Therese36":{"expenses":500,"points":850}}} ```
+
+![picture alt](https://raw.githubusercontent.com/sirigireddyskalyani/get-reward-points/main/showcase/post_rewards_total.png)
+
+## npm run test ##
+![picture alt](https://raw.githubusercontent.com/sirigireddyskalyani/get-reward-points/main/showcase/npm_test.png)
+## npm run coverage ##
+![picture alt](https://raw.githubusercontent.com/sirigireddyskalyani/get-reward-points/main/showcase/npm_coverage.png)
