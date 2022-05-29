@@ -1,35 +1,36 @@
 # About Me
-My self Kalyani, I am a product-focused javascript fullstack developer. I specialise in creating interactive experiences and functional interfaces using React, Canvas, Atomic Architecture and Design Systems.
-for more details check my profile portal @https://kalyani.vercel.app/
+Myself Kalyani, I am a product-focused javascript fullstack developer, for more details check my profile @ https://kalyani.vercel.app/
 # get-reward-points
 Is an REST API service to handle one of retailer use case -
 ### Example - 
-* A retailer offers a rewards program to its customers awarding points based on each recorded purchase.
-* Every dollar spent over $50 on the transaction, the customer receives one pont
-* 2) In addition, for every dollar spent over $100, the customer receives another point
-* 3) Ex: for a $120 purchase, the customer receives (120-50) x 1 + (120 - 100) x 1 = 90 points
+A retailer offers a rewards program to its customers awarding points based on each recorded purchase.
+- [x] Every dollar spent over $50 on the transaction, the customer receives one pont
+- [x] In addition, for every dollar spent over $100, the customer receives another point
+- [x] Ex: for a $120 purchase, the customer receives (120-50) x 1 + (120 - 100) x 1 = 90 points
 # Technologies 
-* platform - Node.js [v14.17.2]
+* Platform - Node.js [v14.17.2]
 * API Service - Express.js
 * Unit Tests  - mocha, chai, supertest
 * Code coverage - nyc
-### SETUP ###
-```
-$ git clone git@github.com:sirigireddyskalyani/get-reward-points.git
-cd get-reward-points
-$ npm run dev
-```
-* download postman collection from - https://www.getpostman.com/collections/5b61d53e106046e48bda
-## Development ##
+## Project SETUP ##
 The project setup made by using Express Genarator Utility -- https://expressjs.com/en/starter/generator.html
 ```
-1. npx express-generator get-reward-points
-2. cd get-reward-points
-3. npm install
+1) npx express-generator get-reward-points
+2) cd get-reward-points
+3) npm install
 ```
+#### `Instructions for running the project on a local machine:`
+```
+1) Download postman collection from - https://www.getpostman.com/collections/5b61d53e106046e48bda
+2) $ git clone git@github.com:sirigireddyskalyani/get-reward-points.git
+3) cd get-reward-points
+4) $ npm run dev
+```
+- - - -
+
 ### npm run dev ###
 ![picture alt](https://raw.githubusercontent.com/sirigireddyskalyani/get-reward-points/main/showcase/npm_dev.png)
-## Rewards API Services ##
+
 Method | API | Request | Response
 | :--- | :--- | ---: | :---:
 GET | http://localhost:3000/rewards/90  | 90 | ``` { "data": {"expense": "90", "points": 40 }, "processTime": "0 sec" } ```
@@ -50,5 +51,6 @@ POST | http://localhost:3000/rewards/total  | ``` { "records": [ { "username": "
 
 ## npm run test ##
 ![picture alt](https://raw.githubusercontent.com/sirigireddyskalyani/get-reward-points/main/showcase/npm_test.png)
+
 ## npm run coverage ##
 ![picture alt](https://raw.githubusercontent.com/sirigireddyskalyani/get-reward-points/main/showcase/npm_coverage.png)
