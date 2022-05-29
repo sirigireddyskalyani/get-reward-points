@@ -16,4 +16,18 @@ module.exports = {
         }
     
     },
+    postRewardValidation: async function (req, res, next) {
+        const params = req.body;
+        if (!params || !params.records) {
+            res.send({
+                message: 'Please provide a valid list of transactions'
+            })
+        } else if (params.records && params.records.length === 0) {
+            res.send({
+                message: 'Transactions list should not be empty'
+            })
+        } else {
+            next();
+        }
+    },
 }

@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 
-var { getRewardValidation } = require("./../middleware/rewards");
+var { getRewardValidation, postRewardValidation } = require("./../middleware/rewards");
 var { calcRewardPoints } = require("./../controller/rewards");
 var { getProcessTime } = require("./../controller/utility");
 var { getTransactionsPerDays } = require("./../controller/facker");
@@ -22,5 +22,21 @@ router.get('/mock/:days', function (req, res) {
   });
 });
 
+router.post('/total', [postRewardValidation], function (req, res, next) {
+  const response = {};
+  req.body.records.forEach(function(rec) {
+      const details = calcRewardPoints(parseFloat(rec.expenses))
+      const entity = response[rec.username]
+      if (entity) {
+          entity.points = entity.points + details.points;
+      } else {
+          response[rec.username] = {...rec, points: details.points}
+      }
+  })
+  res.send({
+      processTime: getProcessTime(req.reqTime),
+      rewards: response,
+  });
+});
 
 module.exports = router;
